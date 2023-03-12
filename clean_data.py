@@ -1,11 +1,12 @@
 # Methods to clean the dataset
 
 # Import the necessary libraries
-import re
-import string
+import re # for regex
+import string # for string manipulation
 
 def remove_URL(text):
     """
+    Remove URLs from the text
     Source: https://www.kaggle.com/code/shahules/basic-eda-cleaning-and-glove/notebook
     """
     url = re.compile(r'https?://\S+|www\.\S+')
@@ -13,6 +14,7 @@ def remove_URL(text):
 
 def remove_html(text):
     """
+    Remove HTMLs from the text
     Source: https://www.kaggle.com/code/shahules/basic-eda-cleaning-and-glove/notebook
     """
     html=re.compile(r'<.*?>')
@@ -20,6 +22,7 @@ def remove_html(text):
 
 def remove_emoji(text):
     """
+    Remove emojis from the text
     Source: https://www.kaggle.com/code/shahules/basic-eda-cleaning-and-glove/notebook
     """
     emoji_pattern = re.compile("["
@@ -34,6 +37,7 @@ def remove_emoji(text):
 
 def remove_punct(text):
     """
+    Remove punctuation
     Source: https://www.kaggle.com/code/shahules/basic-eda-cleaning-and-glove/notebook
     """
     table=str.maketrans('','',string.punctuation)
@@ -41,6 +45,7 @@ def remove_punct(text):
 
 def manual_clean(tweet): 
     """
+    Substitute abbreviations, misspellings, special characters etc
     Source: https://www.kaggle.com/code/gunesevitan/nlp-with-disaster-tweets-eda-cleaning-and-bert#4.-Embeddings-and-Text-Cleaning
     """
             
@@ -787,7 +792,7 @@ def manual_clean(tweet):
 
 
 def clean_data(text):
-    
+
     text = remove_URL(text)
     text = remove_html(text)
     text = remove_emoji(text)
